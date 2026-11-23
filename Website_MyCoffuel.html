@@ -1,0 +1,1597 @@
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffuel | Inovasi Biofuel Ampas Kopi - Tim Aruna Untirta</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        coffee: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0cec7',
+                            400: '#d2bab0',
+                            500: '#a77f71',
+                            600: '#8a5a44',
+                            700: '#6f4534',
+                            800: '#4a2c20',
+                            900: '#2d1a12',
+                        },
+                        bio: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.14), transparent 48%),
+                        radial-gradient(circle at 15% 25%, rgba(138, 90, 68, 0.16), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(74, 44, 32, 0.12), transparent 55%),
+                        linear-gradient(180deg, #fdf8f6 0%, #f8fafc 100%);
+        }
+        .coffee-pattern {
+            background-image: radial-gradient(rgba(111, 69, 52, 0.08) 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(6deg); }
+        }
+        @keyframes steamRise {
+            0% { transform: translateY(4px) scale(0.95); opacity: 0.2; }
+            50% { opacity: 0.75; }
+            100% { transform: translateY(-14px) scale(1.08); opacity: 0; }
+        }
+        .animate-float-slow {
+            animation: floatSlow 5.5s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: floatSlow 6.8s ease-in-out 1.5s infinite;
+        }
+        .animate-steam-1 {
+            animation: steamRise 3s ease-in-out infinite;
+        }
+        .animate-steam-2 {
+            animation: steamRise 3.5s ease-in-out 1s infinite;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-bio-500 selection:text-white">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-coffee-700 to-bio-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i data-lucide="flame" class="w-5 h-5 text-bio-200"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-extrabold text-xl tracking-tight text-slate-900">COFFUEL</span>
+                        <span class="block text-[10px] font-semibold uppercase tracking-wider text-bio-600 -mt-1">Waste-to-Bioethanol</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+                    <a href="#mycoffuel" class="text-bio-700 font-bold hover:text-bio-600 transition-colors flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-bio-500 animate-pulse"></span>
+                        MyCoffuel App
+                    </a>
+                    <a href="#urgensi" class="hover:text-bio-600 transition-colors">Urgensi & Data</a>
+                    <a href="#proses" class="hover:text-bio-600 transition-colors">Alur Biokonversi</a>
+                    <a href="#simulasi" class="hover:text-bio-600 transition-colors">Kalkulator & Ekonomi</a>
+                    <a href="#pasar" class="hover:text-bio-600 transition-colors">TAM-SAM-SOM</a>
+                    <a href="#strategi" class="hover:text-bio-600 transition-colors">Roadmap</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button onclick="openModal('mitraModal')" class="px-4 py-2.5 rounded-xl bg-bio-600 hover:bg-bio-700 text-white text-sm font-semibold shadow-sm hover:shadow transition-all flex items-center gap-2">
+                        <i data-lucide="handshake" class="w-4 h-4"></i>
+                        <span>Jadi Mitra Kedai / B2B</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-5 space-y-2 shadow-lg">
+            <a href="#mycoffuel" class="block px-3 py-2 rounded-lg text-sm font-bold text-bio-700 bg-bio-50">MyCoffuel App (Diskon Biofuel & QR)</a>
+            <a href="#urgensi" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-bio-50 hover:text-bio-700">Urgensi & Data Nasional</a>
+            <a href="#proses" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-bio-50 hover:text-bio-700">Alur Produksi Biokonversi</a>
+            <a href="#simulasi" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-bio-50 hover:text-bio-700">Simulasi & Analisis Ekonomi</a>
+            <a href="#pasar" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-bio-50 hover:text-bio-700">Potensi Pasar (TAM/SAM/SOM)</a>
+            <a href="#strategi" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-bio-50 hover:text-bio-700">Roadmap & SWOT/PESTLE</a>
+            <a href="#tim" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-bio-50 hover:text-bio-700">Tim Aruna Untirta</a>
+            <button onclick="openModal('mitraModal')" class="w-full mt-2 px-4 py-2.5 rounded-xl bg-bio-600 text-white text-sm font-semibold flex items-center justify-center gap-2">
+                <i data-lucide="handshake" class="w-4 h-4"></i>
+                <span>Ajukan Kemitraan Sirkular</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient coffee-pattern pt-28 pb-16 md:pt-36 md:pb-24 border-b border-coffee-200/70 overflow-hidden relative">
+        <!-- Decorative Floating Coffee Beans (SVG Elements) -->
+        <div class="pointer-events-none select-none" aria-hidden="true">
+            <svg class="w-16 h-16 text-coffee-700/15 absolute top-24 left-6 sm:left-12 animate-float-slow" viewBox="0 0 64 64" fill="currentColor">
+                <ellipse cx="32" cy="32" rx="20" ry="28" transform="rotate(-25 32 32)"/>
+                <path d="M22 10 C32 24, 32 40, 42 54" stroke="#fdf8f6" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <svg class="w-12 h-12 text-coffee-800/15 absolute bottom-14 left-1/4 animate-float-delayed hidden sm:block" viewBox="0 0 64 64" fill="currentColor">
+                <ellipse cx="32" cy="32" rx="20" ry="28" transform="rotate(35 32 32)"/>
+                <path d="M22 10 C32 24, 32 40, 42 54" stroke="#fdf8f6" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <svg class="w-14 h-14 text-coffee-600/15 absolute top-28 right-1/3 animate-float-delayed hidden md:block" viewBox="0 0 64 64" fill="currentColor">
+                <ellipse cx="32" cy="32" rx="20" ry="28" transform="rotate(15 32 32)"/>
+                <path d="M22 10 C32 24, 32 40, 42 54" stroke="#fdf8f6" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <svg class="w-20 h-20 text-coffee-900/10 absolute bottom-8 right-8 animate-float-slow" viewBox="0 0 64 64" fill="currentColor">
+                <ellipse cx="32" cy="32" rx="20" ry="28" transform="rotate(-40 32 32)"/>
+                <path d="M22 10 C32 24, 32 40, 42 54" stroke="#fdf8f6" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-coffee-100/90 border border-coffee-300/80 text-coffee-900 text-xs font-semibold shadow-xs">
+                        <i data-lucide="coffee" class="w-3.5 h-3.5 text-coffee-700"></i>
+                        <span>From Cup to Fuel • Spent Coffee Grounds (SCG) • Untirta 2026</span>
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-[1.15] tracking-tight">
+                        Mengubah Limbah <span class="text-coffee-700 underline decoration-coffee-300 decoration-4 underline-offset-4">Ampas Kopi</span> Menjadi <span class="text-bio-600">Bioetanol</span> Pengganti BBM
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        Dari setiap cangkir kopi yang diseduh di <strong>461.991 kedai kopi Indonesia</strong>, tersisa ampas kopi kaya lignoselulosa. Coffuel mengolah limbah seduhan tersebut menjadi bioetanol bersih menuju <strong>mandatori E10 tahun 2028</strong> tanpa mengorbankan komoditas pangan.
+                    </p>
+
+                    <!-- Coffee Transformation Mini Strip -->
+                    <div class="grid grid-cols-3 gap-2.5 sm:gap-3 max-w-xl pt-1">
+                        <div class="p-3 rounded-2xl bg-white/90 border border-coffee-200/80 shadow-xs flex items-center gap-2.5">
+                            <div class="w-9 h-9 rounded-xl bg-coffee-100 text-coffee-800 flex items-center justify-center shrink-0">
+                                <i data-lucide="bean" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-bold text-coffee-900">1. Seduhan Kopi</p>
+                                <p class="text-[10px] text-slate-500">65% jadi ampas</p>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-white/90 border border-coffee-200/80 shadow-xs flex items-center gap-2.5">
+                            <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+                                <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-bold text-amber-950">2. Biokonversi</p>
+                                <p class="text-[10px] text-slate-500">Hidrolisis & distilasi</p>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-white/90 border border-bio-200/80 shadow-xs flex items-center gap-2.5">
+                            <div class="w-9 h-9 rounded-xl bg-bio-100 text-bio-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="fuel" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-bold text-bio-900">3. Bioetanol</p>
+                                <p class="text-[10px] text-slate-500">101,79 kg/ton SCG</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SDGs Badges -->
+                    <div class="flex flex-wrap items-center gap-2 pt-1">
+                        <span class="text-xs font-semibold text-coffee-800 mr-1 flex items-center gap-1">
+                            <i data-lucide="leaf" class="w-3.5 h-3.5 text-bio-600"></i>
+                            Selaras SDGs PBB:
+                        </span>
+                        <span class="px-2.5 py-1 rounded-md bg-amber-100 text-amber-900 text-xs font-bold border border-amber-200">SDG 7: Energi Bersih</span>
+                        <span class="px-2.5 py-1 rounded-md bg-orange-100 text-orange-900 text-xs font-bold border border-orange-200">SDG 12: Produksi Bertanggung Jawab</span>
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-900 text-xs font-bold border border-emerald-200">SDG 13: Aksi Iklim</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3.5 pt-2">
+                        <a href="#mycoffuel" class="px-6 py-3.5 rounded-xl bg-bio-600 hover:bg-bio-700 text-white text-sm font-semibold shadow-lg shadow-bio-600/20 transition-all flex items-center gap-2">
+                            <i data-lucide="smartphone" class="w-4 h-4"></i>
+                            <span>Coba MyCoffuel (Isi Biofuel Hemat)</span>
+                        </a>
+                        <a href="#simulasi" class="px-6 py-3.5 rounded-xl bg-coffee-800 hover:bg-coffee-900 text-white text-sm font-semibold shadow-lg shadow-coffee-900/15 transition-all flex items-center gap-2">
+                            <i data-lucide="calculator" class="w-4 h-4 text-bio-300"></i>
+                            <span>Simulasi Ampas Kopi</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Visual Card with Coffee Cup & Bean Illustration -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-coffee-200/80 relative overflow-hidden">
+                        <div class="absolute -top-10 -right-10 w-36 h-36 bg-coffee-200/40 rounded-full blur-2xl"></div>
+                        <div class="absolute -bottom-10 -left-10 w-36 h-36 bg-bio-400/15 rounded-full blur-2xl"></div>
+
+                        <!-- Coffee Cup to Biofuel Visual Banner -->
+                        <div class="relative bg-gradient-to-br from-coffee-900 via-coffee-800 to-bio-900 rounded-2xl p-4 mb-5 text-white flex items-center justify-between shadow-md">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 flex items-center justify-center shrink-0">
+                                    <svg class="w-10 h-10" viewBox="0 0 64 64" fill="none">
+                                        <path class="animate-steam-1" d="M23 18 C21 13, 25 10, 23 5" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"/>
+                                        <path class="animate-steam-2" d="M33 17 C31 12, 35 9, 33 4" stroke="#fcd34d" stroke-width="2.5" stroke-linecap="round"/>
+                                        <path d="M14 24 H42 V36 C42 44.8 34.8 52 26 52 H30 C21.2 52 14 44.8 14 36 V24 Z" fill="#f2e8e5"/>
+                                        <ellipse cx="28" cy="24" rx="14" ry="3.5" fill="#4a2c20"/>
+                                        <path d="M42 28 H46 C49.3 28 52 30.7 52 34 C52 37.3 49.3 40 46 40 H42" stroke="#f2e8e5" stroke-width="3.5" stroke-linecap="round"/>
+                                        <path d="M10 55 H46" stroke="#d2bab0" stroke-width="3" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-bio-300">Coffee Waste Valorization</span>
+                                    <h3 class="font-display font-bold text-base sm:text-lg text-white leading-tight">1 Cangkir Kopi = Sumber Energi</h3>
+                                    <p class="text-[11px] text-coffee-200 mt-0.5">Benchmark LAFEBCO Untirta: 3–5 kg ampas/hari</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between pb-3 border-b border-coffee-100">
+                            <div>
+                                <p class="text-[11px] font-bold uppercase tracking-wider text-coffee-600">Ringkasan Kelayakan Riset</p>
+                                <h4 class="font-display font-bold text-base text-slate-900">Metrik Utama Coffuel</h4>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-bio-100 text-bio-800 text-xs font-bold flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-bio-600"></span> B2B Ready
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3.5 my-5">
+                            <div class="p-3.5 rounded-2xl bg-coffee-50 border border-coffee-200/70">
+                                <div class="flex items-center gap-1.5 text-coffee-800 mb-1">
+                                    <i data-lucide="coffee" class="w-4 h-4"></i>
+                                    <span class="text-xs font-semibold">Potensi Limbah SCG</span>
+                                </div>
+                                <p class="font-display font-extrabold text-xl sm:text-2xl text-coffee-950">190.047 <span class="text-xs font-normal">Ton/thn</span></p>
+                                <p class="text-[11px] text-coffee-700 mt-1">Dari 461.991 kedai kopi RI</p>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-bio-50 border border-bio-200/70">
+                                <div class="flex items-center gap-1.5 text-bio-700 mb-1">
+                                    <i data-lucide="droplets" class="w-4 h-4"></i>
+                                    <span class="text-xs font-semibold">Rendemen Etanol</span>
+                                </div>
+                                <p class="font-display font-extrabold text-xl sm:text-2xl text-bio-900">101,79 <span class="text-xs font-normal">kg/ton</span></p>
+                                <p class="text-[11px] text-bio-700 mt-1">Konversi lignoselulosa SCG</p>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-coffee-50/50 border border-coffee-100">
+                                <div class="flex items-center gap-1.5 text-coffee-700 mb-1">
+                                    <i data-lucide="tag" class="w-4 h-4"></i>
+                                    <span class="text-xs font-semibold">Harga Jual B2B</span>
+                                </div>
+                                <p class="font-display font-extrabold text-xl sm:text-2xl text-slate-900">Rp 8.000 <span class="text-xs font-normal">/liter</span></p>
+                                <p class="text-[11px] text-slate-500 mt-1">Kompetitif untuk industri</p>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-amber-50/80 border border-amber-200/80">
+                                <div class="flex items-center gap-1.5 text-amber-800 mb-1">
+                                    <i data-lucide="trending-up" class="w-4 h-4"></i>
+                                    <span class="text-xs font-semibold">Payback Period</span>
+                                </div>
+                                <p class="font-display font-extrabold text-xl sm:text-2xl text-amber-950">5–6 <span class="text-xs font-normal">Bulan*</span></p>
+                                <p class="text-[11px] text-amber-700 mt-1">Skala rintisan (±5,7 bln)</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-coffee-950 text-coffee-100 text-xs flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-bio-400 shrink-0"></i>
+                                <span>100% Ampas Kopi Non-Pangan: Bebas konflik lahan & pangan sawit/tebu.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MyCoffuel Super-App Experience (Inspired by MyPertamina) -->
+    <section id="mycoffuel" class="py-16 md:py-24 bg-gradient-to-b from-slate-900 via-coffee-950 to-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-bio-500/20 border border-bio-400/30 text-bio-300 text-xs font-bold mb-3">
+                    <i data-lucide="qr-code" class="w-3.5 h-3.5"></i>
+                    <span>Ekosistem Digital Sirkular • Terinspirasi MyPertamina</span>
+                </div>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-white">
+                    MyCoffuel App: <span class="text-bio-400">Setor Ampas Kopi, Isi Biofuel Lebih Murah!</span>
+                </h2>
+                <p class="text-slate-300 mt-3 text-sm sm:text-base">
+                    Menghubungkan <strong>Kedai Kopi, Pengendara/UMKM, dan Stasiun Pengisian Bioetanol E10</strong> dalam satu aplikasi. Setor ampas kopi untuk mendapat <em>Coffuel Points</em>, lalu tukarkan menjadi <strong>diskon isi bioetanol hingga Rp 6.500/liter</strong>!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Left: Interactive Mobile App Mockup -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-[360px] bg-slate-50 text-slate-800 rounded-[2.5rem] p-4 shadow-2xl border-[6px] border-slate-800 relative">
+                        <div class="w-28 h-5 bg-slate-900 rounded-b-2xl mx-auto -mt-4 mb-3"></div>
+
+                        <div class="flex items-center justify-between px-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-coffee-700 to-bio-600 flex items-center justify-center text-white">
+                                    <i data-lucide="flame" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-bold text-slate-400 leading-none">MYCOFFUEL</p>
+                                    <p class="font-display font-extrabold text-sm text-slate-900">Halo, Mitra Aruna!</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-bio-100 text-bio-800 text-[10px] font-extrabold">Banten-01</span>
+                        </div>
+
+                        <!-- Wallet & Points Card -->
+                        <div class="rounded-2xl bg-gradient-to-r from-coffee-800 via-coffee-900 to-bio-800 p-4 text-white shadow-lg mb-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-wider text-coffee-200">Saldo Coffuel Points</p>
+                                    <p id="appPointsDisplay" class="font-display font-extrabold text-2xl text-white mt-0.5">2.500 <span class="text-xs font-normal text-bio-300">Pts</span></p>
+                                </div>
+                                <span class="px-2 py-0.5 rounded bg-white/15 text-[10px] font-semibold">100 Pts = Diskon Rp1.000</span>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-xs">
+                                <div>
+                                    <span class="text-coffee-200 text-[10px] block">Total Ampas Disetor</span>
+                                    <span id="appWasteDisplay" class="font-bold">25,0 kg SCG</span>
+                                </div>
+                                <button onclick="setorAmpasDemo()" class="px-3 py-1.5 rounded-xl bg-bio-500 hover:bg-bio-400 text-slate-950 font-extrabold text-[11px] transition flex items-center gap-1 shadow">
+                                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                                    <span>Setor +5 kg Ampas</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quick Action Menu -->
+                        <div class="grid grid-cols-4 gap-2 text-center mb-3">
+                            <button onclick="switchAppTab('isi')" id="appBtn-isi" class="app-nav-btn p-2 rounded-xl bg-bio-600 text-white shadow-xs flex flex-col items-center gap-1">
+                                <i data-lucide="fuel" class="w-4 h-4"></i>
+                                <span class="text-[10px] font-bold">Isi Biofuel</span>
+                            </button>
+                            <button onclick="switchAppTab('qr')" id="appBtn-qr" class="app-nav-btn p-2 rounded-xl bg-white text-slate-700 border border-slate-200 flex flex-col items-center gap-1">
+                                <i data-lucide="qr-code" class="w-4 h-4 text-coffee-700"></i>
+                                <span class="text-[10px] font-bold">QR Subsidi</span>
+                            </button>
+                            <button onclick="switchAppTab('harga')" id="appBtn-harga" class="app-nav-btn p-2 rounded-xl bg-white text-slate-700 border border-slate-200 flex flex-col items-center gap-1">
+                                <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i>
+                                <span class="text-[10px] font-bold">Harga BBM</span>
+                            </button>
+                            <button onclick="switchAppTab('stasiun')" id="appBtn-stasiun" class="app-nav-btn p-2 rounded-xl bg-white text-slate-700 border border-slate-200 flex flex-col items-center gap-1">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-rose-600"></i>
+                                <span class="text-[10px] font-bold">SPBU Mitra</span>
+                            </button>
+                        </div>
+
+                        <!-- Dynamic App Screen Content -->
+                        <div id="appScreenBody" class="bg-white rounded-2xl p-3.5 border border-slate-200/90 shadow-xs min-h-[225px]">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Explanation & Price Comparison -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8">
+                        <h3 class="font-display font-bold text-xl text-white mb-2 flex items-center gap-2">
+                            <i data-lucide="badge-percent" class="w-6 h-6 text-bio-400"></i>
+                            <span>Skema Insentif Harga Murah & Diskon Sirkular</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+                            Sesuai analisis ekonomi naskah (harga produksi/B2B <strong>Rp 8.000/liter</strong>), Coffuel memberikan harga jauh lebih terjangkau dibanding BBM nonsubsidi konvensional—dan semakin murah saat mitra menukarkan poin ampas kopi!
+                        </p>
+
+                        <!-- Price Comparison Cards -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+                                <span class="text-[10px] font-bold uppercase text-slate-400">BBM Nonsubsidi Umum</span>
+                                <p class="font-display font-extrabold text-xl text-slate-300 line-through mt-1">Rp 13.500<span class="text-xs font-normal">/L</span></p>
+                                <p class="text-[11px] text-slate-400 mt-1">Berbasis fosil impor</p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-bio-900/50 border border-bio-500/40">
+                                <span class="text-[10px] font-bold uppercase text-bio-300">Coffuel E10 Reguler</span>
+                                <p class="font-display font-extrabold text-2xl text-white mt-1">Rp 8.000<span class="text-xs font-normal">/L</span></p>
+                                <p class="text-[11px] text-bio-300 mt-1">Hemat 40% (Harga Tabel 1)</p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-gradient-to-br from-amber-500/20 to-bio-500/20 border border-amber-400/50">
+                                <span class="text-[10px] font-bold uppercase text-amber-300">Promo Poin Ampas Kopi</span>
+                                <p class="font-display font-extrabold text-2xl text-amber-300 mt-1">Rp 6.500<span class="text-xs font-normal">/L</span></p>
+                                <p class="text-[11px] text-amber-200 mt-1">Diskon ekstra 150 Pts/liter</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 Steps Circular Loop -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="w-8 h-8 rounded-lg bg-coffee-700 text-white flex items-center justify-center font-bold text-xs mb-2">1</div>
+                            <h4 class="font-bold text-sm text-white">Scan & Setor Ampas</h4>
+                            <p class="text-xs text-slate-400 mt-1">Kedai kopi & warga menyetor ampas kopi di drop-box mitra untuk mendapat saldo <em>Coffuel Points</em>.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="w-8 h-8 rounded-lg bg-bio-600 text-white flex items-center justify-center font-bold text-xs mb-2">2</div>
+                            <h4 class="font-bold text-sm text-white">Biokonversi Bioetanol</h4>
+                            <p class="text-xs text-slate-400 mt-1">Ampas diolah menjadi bioetanol E10 siap distribusi untuk transportasi UMKM & industri.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="w-8 h-8 rounded-lg bg-amber-600 text-white flex items-center justify-center font-bold text-xs mb-2">3</div>
+                            <h4 class="font-bold text-sm text-white">Tunjukkan QR & Isi Hemat</h4>
+                            <p class="text-xs text-slate-400 mt-1">Tunjukkan QR MyCoffuel di dispenser mitra Banten-Jabodetabek untuk diskon langsung.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Urgensi & Latar Belakang Data -->
+    <section id="urgensi" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="text-xs font-bold uppercase tracking-widest text-bio-600">Latar Belakang & Fakta Empiris</span>
+            <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-slate-900 mt-2">
+                Mengapa Indonesia Membutuhkan <span class="text-coffee-700">Coffuel</span> Sekarang?
+            </h2>
+            <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                Paradoks antara melimpahnya limbah ampas kopi nasional dan defisit bahan baku bioetanol non-pangan menjelang kebijakan E10 tahun 2028.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-coffee-100 text-coffee-700 flex items-center justify-center mb-4">
+                    <i data-lucide="store" class="w-6 h-6"></i>
+                </div>
+                <p class="text-xs font-semibold text-slate-400 uppercase">OpenStreetMap & SCAI (Nov 2025)</p>
+                <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mt-1">461.991</h3>
+                <p class="text-sm font-semibold text-coffee-800 mt-1">Unit Kedai Kopi di Indonesia</p>
+                <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                    Menjadikan Indonesia negara dengan kedai kopi terbanyak di dunia. Studi kasus <strong>LAFEBCO Untirta</strong> saja menghasilkan 3–5 kg ampas kopi/hari.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
+                    <i data-lucide="users" class="w-6 h-6"></i>
+                </div>
+                <p class="text-xs font-semibold text-slate-400 uppercase">Survei Jakpat (April 2026)</p>
+                <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mt-1">58%</h3>
+                <p class="text-sm font-semibold text-amber-900 mt-1">Masyarakat Ngopi Setiap Hari</p>
+                <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                    Dari 1.238 responden, 72% mengonsumsi kopi dalam 6 bulan terakhir (29% 1x/hari, 24% 2–3x/hari, dan 5% >3x/hari).
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-bio-100 text-bio-700 flex items-center justify-center mb-4">
+                    <i data-lucide="package" class="w-6 h-6"></i>
+                </div>
+                <p class="text-xs font-semibold text-slate-400 uppercase">Laporan USDA (2024–2027)</p>
+                <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mt-1">292.380 <span class="text-sm font-normal">Ton</span></h3>
+                <p class="text-sm font-semibold text-bio-800 mt-1">Proyeksi Konsumsi Kopi/Tahun</p>
+                <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                    Setara 4,873 juta kantong (60 kg). Dengan asumsi 65% menjadi <em>spent coffee grounds</em>, tersedia <strong>190.047 ton ampas kopi</strong> per tahun.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-4">
+                    <i data-lucide="fuel" class="w-6 h-6"></i>
+                </div>
+                <p class="text-xs font-semibold text-slate-400 uppercase">Perpres No. 22/2017 (RUEN)</p>
+                <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mt-1">E10 <span class="text-sm font-normal">2028</span></h3>
+                <p class="text-sm font-semibold text-blue-900 mt-1">Mandatori Biofuel Nasional</p>
+                <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                    Kebutuhan bioetanol melonjak jutaan kiloliter. Coffuel mengisi celah pasokan (<em>supply gap</em>) tanpa bergantung pada komoditas pangan.
+                </p>
+            </div>
+        </div>
+
+        <!-- Triple Bottom Line Banner -->
+        <div class="mt-10 bg-gradient-to-r from-coffee-900 via-coffee-800 to-bio-900 rounded-3xl p-6 sm:p-8 text-white shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-white/15">
+                <div class="pt-4 md:pt-0 md:px-4 first:pt-0 first:pl-0">
+                    <div class="flex items-center gap-2 text-bio-300 font-bold text-sm mb-1">
+                        <i data-lucide="globe" class="w-4 h-4"></i>
+                        <span>PLANET (Ekologis)</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                        Mencegah emisi gas metana dari penumpukan limbah organik kedai kopi di TPA serta menekan ketergantungan BBM fosil.
+                    </p>
+                </div>
+                <div class="pt-4 md:pt-0 md:px-6">
+                    <div class="flex items-center gap-2 text-amber-300 font-bold text-sm mb-1">
+                        <i data-lucide="coins" class="w-4 h-4"></i>
+                        <span>PROFIT (Ekonomi Sirkular)</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                        Mengubah limbah bernilai nol menjadi bioetanol komersial seharga Rp8.000/liter dengan proyeksi laba bersih Rp108 juta/tahun di skala rintisan.
+                    </p>
+                </div>
+                <div class="pt-4 md:pt-0 md:px-6">
+                    <div class="flex items-center gap-2 text-sky-300 font-bold text-sm mb-1">
+                        <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+                        <span>PEOPLE (Sosial Inklusif)</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                        Mengintegrasikan UMKM kedai kopi, kampus, dan komunitas lokal ke dalam rantai pasok energi terbarukan yang saling menguntungkan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Alur Produksi Biokonversi Interaktif -->
+    <section id="proses" class="py-16 md:py-24 bg-white border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-coffee-700">Teknologi Biokonversi Lignoselulosa</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-slate-900 mt-2">
+                        6 Tahapan Produksi Coffuel
+                    </h2>
+                </div>
+                <p class="text-sm text-slate-500 max-w-md">
+                    Klik setiap tahapan untuk melihat detail teknis konversi ampas kopi menjadi bioetanol standar industri B2B.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8" id="stepButtons"></div>
+            <div id="stepDetailCard" class="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-200 transition-all"></div>
+        </div>
+    </section>
+
+    <!-- Section 3: Kalkulator Simulasi Interaktif & Analisis Ekonomi -->
+    <section id="simulasi" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-bio-600">Simulasi & Kelayakan Finansial</span>
+            <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-slate-900 mt-2">
+                Kalkulator Konversi Ampas Kopi & Proyeksi Ekonomi
+            </h2>
+            <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                Uji potensi produksi bioetanol berdasarkan parameter riset Coffuel (1 ton SCG = 101,79 kg bioetanol ≈ 128,9 liter bioetanol, harga jual Rp8.000/liter).
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-display font-bold text-lg text-slate-900 flex items-center gap-2">
+                        <i data-lucide="sliders" class="w-5 h-5 text-bio-600"></i>
+                        <span>Simulasi Skala Kemitraan Kedai</span>
+                    </h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-bio-50 text-bio-700">Interaktif</span>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm font-semibold mb-2">
+                        <label for="cafeSlider" class="text-slate-700">Jumlah Kedai Kopi Mitra</label>
+                        <span id="cafeVal" class="text-bio-700 font-bold">50 Kedai</span>
+                    </div>
+                    <input type="range" id="cafeSlider" min="5" max="1000" step="5" value="50" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-bio-600">
+                    <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                        <span>5 Kedai (Kampus)</span>
+                        <span>250 Kedai (Kota)</span>
+                        <span>1.000 Kedai (Regional)</span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm font-semibold mb-2">
+                        <label for="wasteSlider" class="text-slate-700">Rata-rata Ampas Kopi / Kedai / Hari</label>
+                        <span id="wasteVal" class="text-coffee-700 font-bold">4,0 kg/hari</span>
+                    </div>
+                    <input type="range" id="wasteSlider" min="1" max="15" step="0.5" value="4" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-coffee-700">
+                    <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                        <span>1 kg (Kecil)</span>
+                        <span>3–5 kg (Benchmark LAFEBCO Untirta)</span>
+                        <span>15 kg (Besar)</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <button onclick="setPreset(1, 4)" class="text-xs px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition">Benchmark LAFEBCO Untirta (1 Kedai)</button>
+                    <button onclick="setPreset(22, 4)" class="text-xs px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition">Skala Rintisan Tabel 1 (~30.000 L/thn)</button>
+                    <button onclick="setPreset(35, 4)" class="text-xs px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition">Target SOM Awal (49.000 L/thn)</button>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+                    <div class="p-4 rounded-2xl bg-coffee-50/80 border border-coffee-100">
+                        <p class="text-xs text-coffee-700 font-medium">Total Ampas Kopi Terkumpul</p>
+                        <p id="resWasteYear" class="font-display font-extrabold text-xl text-coffee-900 mt-1">73,0 Ton/thn</p>
+                        <p id="resWasteDay" class="text-[11px] text-coffee-600">200 kg / hari</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-bio-50/80 border border-bio-100">
+                        <p class="text-xs text-bio-700 font-medium">Bioetanol Coffuel Dihasilkan</p>
+                        <p id="resBiofuelYear" class="font-display font-extrabold text-xl text-bio-900 mt-1">9.417 Liter/thn</p>
+                        <p id="resBiofuelMonth" class="text-[11px] text-bio-700">~785 Liter / bulan</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-900 text-white">
+                        <p class="text-xs text-slate-400 font-medium">Potensi Pendapatan Kotor</p>
+                        <p id="resRevenue" class="font-display font-extrabold text-lg sm:text-xl text-bio-400 mt-1">Rp 75.336.000</p>
+                        <p class="text-[11px] text-slate-400">Asumsi Rp8.000 / liter</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-emerald-900 text-white">
+                        <p class="text-xs text-emerald-300 font-medium">Reduksi Emisi Karbon (Est.)</p>
+                        <p id="resCarbon" class="font-display font-extrabold text-lg sm:text-xl text-white mt-1">16,5 Ton CO₂e</p>
+                        <p class="text-[11px] text-emerald-300">Substitusi BBM & cegah metana</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <span class="text-xs font-bold text-coffee-700 uppercase">Tabel 1 Naskah</span>
+                        <h3 class="font-display font-bold text-lg text-slate-900">Analisis Kelayakan Finansial Rintisan</h3>
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold">SPP: 5–6 Bulan</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-200 text-xs font-bold uppercase text-slate-400">
+                                <th class="py-3 px-2">Komponen Finansial</th>
+                                <th class="py-3 px-2 text-right">Nilai</th>
+                                <th class="py-3 px-2 text-right">Satuan</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm">
+                            <tr class="hover:bg-slate-50">
+                                <td class="py-3.5 px-2 font-medium text-slate-700">Harga Jual Coffuel (B2B)</td>
+                                <td class="py-3.5 px-2 text-right font-bold text-slate-900">Rp8.000</td>
+                                <td class="py-3.5 px-2 text-right text-slate-500 text-xs">IDR/liter</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="py-3.5 px-2 font-medium text-slate-700">Total Investasi (CAPEX) & Modal Kerja</td>
+                                <td class="py-3.5 px-2 text-right font-bold text-slate-900">Rp51.000.000</td>
+                                <td class="py-3.5 px-2 text-right text-slate-500 text-xs">IDR</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="py-3.5 px-2 font-medium text-slate-700">Total OPEX Tahunan</td>
+                                <td class="py-3.5 px-2 text-right font-bold text-rose-600">Rp132.000.000</td>
+                                <td class="py-3.5 px-2 text-right text-slate-500 text-xs">IDR/tahun</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="py-3.5 px-2 font-medium text-slate-700">Laba Kotor (Gross Revenue)</td>
+                                <td class="py-3.5 px-2 text-right font-bold text-slate-900">Rp240.000.000</td>
+                                <td class="py-3.5 px-2 text-right text-slate-500 text-xs">IDR/tahun</td>
+                            </tr>
+                            <tr class="bg-bio-50/60">
+                                <td class="py-3.5 px-2 font-bold text-bio-900">Laba Bersih (Net Profit)</td>
+                                <td class="py-3.5 px-2 text-right font-extrabold text-bio-700">Rp108.000.000</td>
+                                <td class="py-3.5 px-2 text-right text-bio-700 text-xs font-semibold">IDR/tahun</td>
+                            </tr>
+                            <tr class="bg-amber-50/60">
+                                <td class="py-3.5 px-2 font-bold text-amber-900">Simple Payback Period (SPP)</td>
+                                <td class="py-3.5 px-2 text-right font-extrabold text-amber-800">5–6 (±5,7)</td>
+                                <td class="py-3.5 px-2 text-right text-amber-800 text-xs font-semibold">Bulan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-5 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-slate-600 leading-relaxed">
+                    <p class="font-bold text-slate-800 mb-1 flex items-center gap-1.5">
+                        <i data-lucide="info" class="w-4 h-4 text-amber-600"></i>
+                        <span>Catatan Techno-Economic Assessment:</span>
+                    </p>
+                    Estimasi SPP 5–6 bulan berlaku pada skala rintisan dengan penyerapan pasar optimal. Pada skala industri penuh yang memperhitungkan logistik pengumpulan basah, regenerasi enzim/pelarut, depresiasi mesin, dan sertifikasi mutu biofuel, periode pengembalian modal berada pada rentang realistis <strong>2–4 tahun</strong>.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Analisis Pasar (TAM, SAM, SOM & STP) -->
+    <section id="pasar" class="py-16 md:py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-bio-400">Potensi Komersial & Strategi Pasar</span>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl mt-2">
+                    Analisis Ukuran Pasar (TAM – SAM – SOM) & STP
+                </h2>
+                <p class="text-slate-400 mt-3 text-sm sm:text-base">
+                    Berbasis proyeksi konsumsi kopi Indonesia 2026/2027 sebesar 292.380 ton/tahun dan strategi penetrasi B2B di kawasan industri Banten & Jabodetabek.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center">
+                        <div class="w-full h-full rounded-full bg-coffee-800/80 border-2 border-coffee-600 flex flex-col items-center pt-6 shadow-2xl transition-transform hover:scale-[1.02]">
+                            <span class="text-xs font-extrabold tracking-widest text-coffee-200">TAM</span>
+                            <span class="font-display font-extrabold text-lg text-white">24,5 Juta L/thn</span>
+                        </div>
+                        <div class="absolute bottom-2 w-52 h-52 sm:w-56 sm:h-56 rounded-full bg-coffee-700 border-2 border-amber-500/60 flex flex-col items-center pt-5 shadow-xl transition-transform hover:scale-[1.03]">
+                            <span class="text-xs font-extrabold tracking-widest text-amber-300">SAM (10%)</span>
+                            <span class="font-display font-extrabold text-base text-white">2,45 Juta L/thn</span>
+                        </div>
+                        <div class="absolute bottom-4 w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-bio-600 border-2 border-bio-300 flex flex-col items-center justify-center text-center p-2 shadow-lg transition-transform hover:scale-105">
+                            <span class="text-[11px] font-extrabold tracking-widest text-bio-100">SOM (2%)</span>
+                            <span class="font-display font-extrabold text-sm sm:text-base text-white leading-tight">49.000 L/thn</span>
+                            <span class="text-[10px] text-bio-100 mt-0.5">4.083 L/bulan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-display font-bold text-coffee-300">1. Total Available Market (TAM)</span>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-coffee-800 text-coffee-200">24,5 Juta Liter/Tahun</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Potensi teoretis total bioetanol nasional dari konversi 190.047 ton ampas kopi (65% dari 292.380 ton konsumsi kopi nasional) dengan rendemen 101,79 kg bioetanol/ton SCG.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-display font-bold text-amber-300">2. Serviceable Available Market (SAM)</span>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-amber-900/60 text-amber-200">2,45 Juta Liter/Tahun (10% TAM)</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Segmen pasar industri & komersial yang dapat dilayani dengan fokus geografis awal di <strong>Provinsi Banten & Jabodetabek</strong> sebagai pusat manufaktur dan distribusi energi.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-bio-950/60 border border-bio-500/40">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-display font-bold text-bio-400">3. Serviceable Obtainable Market (SOM)</span>
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-bio-600 text-white">49.000 Liter/Tahun (2% SAM)</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                            Target pasar awal yang realistis dan terukur setara <strong>4.083 liter/bulan</strong> melalui kemitraan B2B dengan distributor kimia & industri (seperti PT Chemifin Jaya Utama & PT Indochemical Citra Kimia).
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                        <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-[11px] font-bold uppercase text-bio-400">Segmentation</p>
+                            <p class="text-xs text-slate-300 mt-1">IKM, manufaktur, farmasi, kosmetik, F&B & industri berorientasi ESG di Banten-Jabodetabek.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-[11px] font-bold uppercase text-amber-400">Targeting</p>
+                            <p class="text-xs text-slate-300 mt-1">B2B distributor bahan kimia & industri yang terdampak pergeseran pasokan etanol akibat E10.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-[11px] font-bold uppercase text-sky-400">Positioning</p>
+                            <p class="text-xs text-slate-300 mt-1">Penyedia biofuel sirkular berbasis limbah ampas kopi lokal yang ekonomis dan rendah karbon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Roadmap Implementasi & Analisis Strategis -->
+    <section id="strategi" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-coffee-700">Perencanaan Strategis & Ekosistem</span>
+            <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-slate-900 mt-2">
+                Peta Jalan Implementasi & Analisis Komprehensif
+            </h2>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+            <button onclick="switchTab('roadmap')" id="tab-roadmap" class="strat-tab px-5 py-2.5 rounded-xl text-sm font-bold bg-slate-900 text-white shadow-sm transition">
+                1. Roadmap (Lampiran 4)
+            </button>
+            <button onclick="switchTab('swot')" id="tab-swot" class="strat-tab px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">
+                2. Analisis SWOT (Lampiran 1)
+            </button>
+            <button onclick="switchTab('pestle')" id="tab-pestle" class="strat-tab px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">
+                3. Analisis PESTLE (Lampiran 2)
+            </button>
+            <button onclick="switchTab('smart')" id="tab-smart" class="strat-tab px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">
+                4. SMART & Stakeholder (Lampiran 3 & 5)
+            </button>
+        </div>
+
+        <div id="tabContent" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm"></div>
+    </section>
+
+    <!-- Section 6: Struktur Organisasi & Tim Aruna Untirta -->
+    <section id="tim" class="py-16 md:py-24 bg-coffee-50/60 border-t border-coffee-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-bio-700">Universitas Sultan Ageng Tirtayasa • Serang 2026</span>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-slate-900 mt-2">
+                    Struktur Manajemen & Tim Aruna
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Kolaborasi multidisiplin di bawah bimbingan <strong>Bapak Dr. Roni Kambara, S.T., M.M.</strong> untuk mewujudkan transisi energi berkelanjutan dari kampus menuju industri.
+                </p>
+            </div>
+
+            <!-- Team Grid (5 Anggota Inti: CEO, COO, CTO, CFO, CMO) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                <!-- Member 1: CEO -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-lg bg-slate-900 text-white text-xs font-extrabold">CEO</span>
+                        <span class="text-xs font-mono text-slate-400">1111230202</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Dimas Maulana Aziz</h3>
+                    <p class="text-xs font-semibold text-bio-600 mt-0.5">Chief Executive Officer</p>
+                    <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+                        Menentukan arah dan strategi bisnis, menjalin kemitraan strategis dengan kedai kopi & industri, serta mengawasi keseluruhan operasional perusahaan.
+                    </p>
+                </div>
+
+                <!-- Member 2: COO -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-lg bg-emerald-700 text-white text-xs font-extrabold">COO</span>
+                        <span class="text-xs font-mono text-slate-400">Operations</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Balqis Nur Fitriyah</h3>
+                    <p class="text-xs font-semibold text-bio-600 mt-0.5">Chief Operating Officer</p>
+                    <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+                        Mengelola operasional harian perusahaan, mengatur rantai pasok dan distribusi produk, serta memastikan efisiensi seluruh proses bisnis.
+                    </p>
+                </div>
+
+                <!-- Member 3: CTO -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-lg bg-bio-600 text-white text-xs font-extrabold">CTO</span>
+                        <span class="text-xs font-mono text-slate-400">3335220049</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Rositta Qamara Azizah</h3>
+                    <p class="text-xs font-semibold text-bio-600 mt-0.5">Chief Technology Officer</p>
+                    <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+                        Bertanggung jawab atas proses produksi biokonversi lignoselulosa, pengembangan teknologi pretreatment-distilasi, serta menjaga standar mutu bioetanol.
+                    </p>
+                </div>
+
+                <!-- Member 4: CFO -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-lg bg-amber-600 text-white text-xs font-extrabold">CFO</span>
+                        <span class="text-xs font-mono text-slate-400">5551240024</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Havit Rifai</h3>
+                    <p class="text-xs font-semibold text-bio-600 mt-0.5">Chief Financial Officer</p>
+                    <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+                        Mengelola keuangan perusahaan, menyusun anggaran CAPEX/OPEX, melakukan analisis biaya dan profitabilitas, serta mengawasi arus kas.
+                    </p>
+                </div>
+
+                <!-- Member 5: CMO -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-lg bg-coffee-700 text-white text-xs font-extrabold">CMO</span>
+                        <span class="text-xs font-mono text-slate-400">6661230179</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Najma Mufidah</h3>
+                    <p class="text-xs font-semibold text-bio-600 mt-0.5">Chief Marketing Officer</p>
+                    <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+                        Menyusun dan menjalankan strategi pemasaran B2B, menjalin hubungan dengan distributor kimia & pelanggan industri, serta mengembangkan branding Coffuel.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-slate-800">
+                <div>
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-bio-600 flex items-center justify-center text-white">
+                            <i data-lucide="flame" class="w-4 h-4"></i>
+                        </div>
+                        <span class="font-display font-extrabold text-lg text-white">COFFUEL</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2 max-w-md">
+                        "Inovasi Ampas Kopi sebagai Biofuel Alternatif Pengganti BBM untuk Mendukung Transisi Energi Berkelanjutan" — Tim Aruna, Universitas Sultan Ageng Tirtayasa.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="openModal('pustakaModal')" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-semibold text-slate-200 transition flex items-center gap-2">
+                        <i data-lucide="book-open" class="w-4 h-4 text-bio-400"></i>
+                        <span>Lihat Daftar Pustaka Ilmiah (16 Referensi)</span>
+                    </button>
+                </div>
+            </div>
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 Coffuel — Tim Aruna Universitas Sultan Ageng Tirtayasa (Serang, Banten).</p>
+                <p>Dibuat selaras dengan naskah esai Kompetisi Esai Gapai Cita × IKABA FIB UI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal 1: Form Kemitraan Kedai / B2B -->
+    <div id="mitraModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative">
+            <button onclick="closeModal('mitraModal')" class="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:bg-slate-100 hover:text-slate-700">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-bio-100 text-bio-700 flex items-center justify-center">
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Gabung Ekosistem Sirkular Coffuel</h3>
+                    <p class="text-xs text-slate-500">Pemasok Ampas Kopi (Kedai/UMKM) atau Pembeli Bioetanol (B2B)</p>
+                </div>
+            </div>
+
+            <form id="mitraForm" onsubmit="handlePartnerSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Peran Kemitraan</label>
+                    <select id="partnerRole" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:outline-none focus:border-bio-500">
+                        <option value="Kedai Kopi / Pemasok Ampas Kopi">Kedai Kopi / Roastery (Pemasok Ampas Kopi)</option>
+                        <option value="Industri / Distributor B2B">Industri Manufaktur / Distributor Kimia (Pembeli B2B)</option>
+                        <option value="Lembaga Riset / Pemerintah">Perguruan Tinggi / Pemerintah / Investor</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama Instansi / Kedai Kopi</label>
+                    <input type="text" required placeholder="Contoh: LAFEBCO Untirta / PT Chemifin Jaya Utama" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:outline-none focus:border-bio-500">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Wilayah</label>
+                        <input type="text" required placeholder="Serang / Banten / Jabodetabek" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:outline-none focus:border-bio-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Estimasi Volume / Hari</label>
+                        <input type="text" required placeholder="Contoh: 4 kg ampas / 500 L etanol" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:outline-none focus:border-bio-500">
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-bio-600 hover:bg-bio-700 text-white font-bold text-sm shadow-md transition">
+                    Simulasikan Pengajuan Kemitraan
+                </button>
+            </form>
+
+            <div id="mitraSuccess" class="hidden mt-4 p-4 rounded-2xl bg-bio-50 border border-bio-200 text-bio-900 text-xs leading-relaxed">
+                <strong>Terima kasih!</strong> Data simulasi kemitraan Anda telah tercatat dalam purwarupa Coffuel. Tim Aruna Untirta akan menghubungi Anda untuk penjadwalan penjemputan ampas kopi atau pengiriman sampel bioetanol.
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Daftar Pustaka -->
+    <div id="pustakaModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[85vh] flex flex-col">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                <div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Daftar Pustaka Naskah Coffuel</h3>
+                    <p class="text-xs text-slate-500">Landasan ilmiah biokonversi lignoselulosa, ekonomi sirkular, dan bioetanol</p>
+                </div>
+                <button onclick="closeModal('pustakaModal')" class="p-2 rounded-full text-slate-400 hover:bg-slate-100 hover:text-slate-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="overflow-y-auto custom-scrollbar py-4 space-y-3 text-xs text-slate-600 leading-relaxed">
+                <p>1. <strong>Balat, M. (2011).</strong> Production of bioethanol from lignocellulosic materials via the biochemical pathway: A review. <em>Energy Conversion and Management</em>, 52(2), 858–875.</p>
+                <p>2. <strong>Badan Standardisasi Nasional. (2023).</strong> Memahami konsep ekonomi sirkular dalam mendorong pemulihan ekonomi berkelanjutan.</p>
+                <p>3. <strong>Cheng, K. K., et al. (2009).</strong> Bioethanol from lignocellulosic biomass: Current findings determine research priorities. <em>Chemical Engineering Science</em>, 64(11), 2173–2180.</p>
+                <p>4. <strong>Demirbas, A. (2008).</strong> Biofuels sources, biofuel policy, biofuel economy and global biofuel projections. <em>Energy Conversion and Management</em>, 49(8), 2106–2116.</p>
+                <p>5. <strong>Indra Kurniawan, M., Hardoyo, A., Nasoetion, P., & Natalina. (2023).</strong> Produksi bioetanol secara enzimatis menggunakan bahan baku limbah kulit singkong. <em>Prosiding SENASTITAN III</em>, Surabaya.</p>
+                <p>6. <strong>Martauli, E. D. (2018).</strong> Analisis produksi kopi di Indonesia. <em>Jurnal Ekonomi Pertanian dan Agribisnis</em>, 1(2), 112–113.</p>
+                <p>7. <strong>Nur, A. A., Al Amrie, M., & Yusran. (2024).</strong> Peranan ampas kopi sebagai energi alternatif. <em>Jurnal Ekonomi Pembangunan dan Manajemen (EKMAN)</em>, 3(1), 13–15.</p>
+                <p>8. <strong>Paramita, A. D., & Fitrianto, A. R. (2024).</strong> Analisis daya saing kopi Indonesia dan Vietnam di pasar ASEAN. <em>JEPA</em>, 8(3), 930–939.</p>
+                <p>9. <strong>Pertamina. (2023).</strong> Bioetanol: Energi harapan masa depan. Pertamina One Solution Insight.</p>
+                <p>10. <strong>Siswati, N. D., Yatim, M., & Hidayanto, R. (2010).</strong> Bioethanol from coffee peel waste with fermentation process. UPN "Veteran" Jawa Timur.</p>
+                <p>11. <strong>Susmiati, Y. (2018).</strong> Prospek produksi bioetanol dari limbah pertanian dan sampah organik. <em>Industria</em>, 7(2), 67–80.</p>
+                <p>12. <strong>Yunidar, D., & Hifzhurrahman, A. H. (2023).</strong> Pemanfaatan ampas kopi sebagai material dasar untuk membuat pot tanaman. <em>Narada</em>, 10(3), 297–299.</p>
+                <p>13. <strong>Zabed, H., et al. (2017).</strong> Recent advances in biological pretreatment of lignocellulosic biomass for bioethanol production. <em>Renewable and Sustainable Energy Reviews</em>, 71, 475–499.</p>
+                <p>14. <strong>Zhou, M., & Fang, H. (2013).</strong> Dehydration of bioethanol using zeolite membranes: A review. <em>Renewable and Sustainable Energy Reviews</em>, 30, 388–403.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const productionSteps = [
+            {
+                num: "01",
+                title: "Pengumpulan Ampas Kopi",
+                subtitle: "Dari Mitra Kedai & UMKM",
+                icon: "coffee",
+                desc: "Ampas kopi (spent coffee grounds) dikumpulkan dari kedai kopi dan pelaku usaha minuman melalui skema kemitraan sirkular (seperti LAFEBCO Untirta). Limbah dipisahkan dari kontaminan plastik/kertas sebelum masuk fasilitas pengolahan.",
+                output: "Bahan baku SCG terpilah & bebas kontaminan"
+            },
+            {
+                num: "02",
+                title: "Pretreatment",
+                subtitle: "Pengeringan & Pengolahan Awal",
+                icon: "sun",
+                desc: "Ampas kopi dikeringkan untuk menurunkan kadar air yang tinggi serta diolah secara fisik/kimiawi guna memecah matriks lignoselulosa yang kompleks agar akses enzim pada tahap berikutnya menjadi optimal.",
+                output: "Biomassa kering dengan struktur selulosa terbuka"
+            },
+            {
+                num: "03",
+                title: "Hidrolisis",
+                subtitle: "Pemecahan Selulosa menjadi Gula",
+                icon: "flask-conical",
+                desc: "Polimer selulosa dan hemiselulosa dalam ampas kopi dipecah menjadi monomer gula sederhana (glukosa & xilosa) menggunakan bantuan enzim selulase atau katalis kimia terkontrol.",
+                output: "Larutan hidrolisat kaya gula sederhana"
+            },
+            {
+                num: "04",
+                title: "Fermentasi",
+                subtitle: "Konversi Gula menjadi Etanol",
+                icon: "sparkles",
+                desc: "Tahap inti biokonversi di mana mikroorganisme (seperti Saccharomyces cerevisiae) memfermentasi larutan gula sederhana dalam kondisi anaerob untuk menghasilkan bioetanol mentah.",
+                output: "Kaldu fermentasi mengandung bioetanol"
+            },
+            {
+                num: "05",
+                title: "Distilasi",
+                subtitle: "Pemurnian Etanol",
+                icon: "flame",
+                desc: "Pemisahan dan pemurnian etanol dari air serta residu fermentasi melalui distilasi bertingkat (dan dehidrasi membran zeolit) hingga mencapai kadar kemurnian standar bahan bakar & industri.",
+                output: "Bioetanol Coffuel murni standar industri"
+            },
+            {
+                num: "06",
+                title: "Penyimpanan & Distribusi",
+                subtitle: "Distribusi B2B ke Industri",
+                icon: "truck",
+                desc: "Biofuel yang telah lulus uji kualitas disimpan dalam tangki penyimpanan khusus berstandar keselamatan sebelum didistribusikan ke mitra industri dan distributor kimia melalui skema B2B.",
+                output: "Pasokan energi berkelanjutan bagi industri"
+            }
+        ];
+
+        let activeStepIndex = 0;
+
+        function renderSteps() {
+            const btnContainer = document.getElementById('stepButtons');
+            const detailContainer = document.getElementById('stepDetailCard');
+
+            btnContainer.innerHTML = productionSteps.map((step, idx) => {
+                const isActive = idx === activeStepIndex;
+                return `
+                    <button onclick="selectStep(${idx})" class="p-4 rounded-2xl border text-left transition-all flex flex-col justify-between ${
+                        isActive 
+                        ? 'bg-bio-600 text-white border-bio-600 shadow-lg shadow-bio-600/20 scale-[1.02]' 
+                        : 'bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-200'
+                    }">
+                        <div class="flex items-center justify-between w-full mb-2">
+                            <span class="text-xs font-extrabold ${isActive ? 'text-bio-200' : 'text-slate-400'}">TAHAP ${step.num}</span>
+                            <i data-lucide="${step.icon}" class="w-4 h-4 ${isActive ? 'text-white' : 'text-coffee-700'}"></i>
+                        </div>
+                        <p class="font-display font-bold text-xs sm:text-sm leading-snug">${step.title}</p>
+                    </button>
+                `;
+            }).join('');
+
+            const current = productionSteps[activeStepIndex];
+            detailContainer.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-8 space-y-3">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-coffee-100 text-coffee-800 text-xs font-bold">
+                            <span>Tahap ${current.num} dari 06</span>
+                            <span>•</span>
+                            <span>${current.subtitle}</span>
+                        </div>
+                        <h3 class="font-display font-extrabold text-2xl text-slate-900">${current.title}</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">${current.desc}</p>
+                    </div>
+                    <div class="lg:col-span-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                        <p class="text-xs font-bold uppercase tracking-wider text-bio-600 mb-1">Output Tahapan</p>
+                        <p class="font-display font-bold text-slate-900 text-sm mb-4">${current.output}</p>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                            <button onclick="selectStep(${(activeStepIndex - 1 + productionSteps.length) % productionSteps.length})" class="text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1">
+                                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Sebelumnya
+                            </button>
+                            <button onclick="selectStep(${(activeStepIndex + 1) % productionSteps.length})" class="text-xs font-bold text-bio-600 hover:text-bio-700 flex items-center gap-1">
+                                Selanjutnya <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        function selectStep(index) {
+            activeStepIndex = index;
+            renderSteps();
+        }
+
+        const cafeSlider = document.getElementById('cafeSlider');
+        const wasteSlider = document.getElementById('wasteSlider');
+
+        function updateCalculator() {
+            const cafes = parseFloat(cafeSlider.value);
+            const wastePerCafe = parseFloat(wasteSlider.value);
+
+            document.getElementById('cafeVal').textContent = `${cafes.toLocaleString('id-ID')} Kedai`;
+            document.getElementById('wasteVal').textContent = `${wastePerCafe.toLocaleString('id-ID', {minimumFractionDigits: 1})} kg/hari`;
+
+            const totalWasteDayKg = cafes * wastePerCafe;
+            const totalWasteYearTon = (totalWasteDayKg * 365) / 1000;
+
+            const literPerTon = 24500000 / 190047;
+            const biofuelYearLiter = totalWasteYearTon * literPerTon;
+            const biofuelMonthLiter = biofuelYearLiter / 12;
+
+            const revenueYear = biofuelYearLiter * 8000;
+            const carbonSavedTon = (biofuelYearLiter * 1.75) / 1000;
+
+            document.getElementById('resWasteYear').textContent = `${totalWasteYearTon.toLocaleString('id-ID', {maximumFractionDigits: 1})} Ton/thn`;
+            document.getElementById('resWasteDay').textContent = `${totalWasteDayKg.toLocaleString('id-ID')} kg / hari`;
+
+            document.getElementById('resBiofuelYear').textContent = `${Math.round(biofuelYearLiter).toLocaleString('id-ID')} Liter/thn`;
+            document.getElementById('resBiofuelMonth').textContent = `~${Math.round(biofuelMonthLiter).toLocaleString('id-ID')} Liter / bulan`;
+
+            document.getElementById('resRevenue').textContent = `Rp ${Math.round(revenueYear).toLocaleString('id-ID')}`;
+            document.getElementById('resCarbon').textContent = `${carbonSavedTon.toLocaleString('id-ID', {maximumFractionDigits: 1})} Ton CO₂e`;
+        }
+
+        function setPreset(cafes, waste) {
+            cafeSlider.value = cafes;
+            wasteSlider.value = waste;
+            updateCalculator();
+        }
+
+        cafeSlider.addEventListener('input', updateCalculator);
+        wasteSlider.addEventListener('input', updateCalculator);
+
+        const tabContents = {
+            roadmap: `
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-2xl bg-coffee-50 border border-coffee-200 flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block px-3 py-1 rounded-full bg-coffee-800 text-white text-xs font-bold mb-3">1 • Jangka Pendek (0–1 Tahun)</span>
+                            <h4 class="font-display font-extrabold text-lg text-coffee-950 mb-2">Riset & Prototype</h4>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                                Pengumpulan ampas kopi, karakterisasi bahan baku, optimasi proses pengeringan dan konversi, serta pengujian kualitas laboratorium Coffuel.
+                            </p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white border border-coffee-200 text-xs">
+                            <span class="font-bold text-coffee-800 block">Target Utama:</span>
+                            Menghasilkan <strong>prototype Coffuel</strong> dengan karakteristik nilai kalor & pembakaran yang optimal.
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-bio-50 border border-bio-200 flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block px-3 py-1 rounded-full bg-bio-700 text-white text-xs font-bold mb-3">2 • Jangka Menengah (1–3 Tahun)</span>
+                            <h4 class="font-display font-extrabold text-lg text-bio-950 mb-2">Pilot Project & Kolaborasi</h4>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                                Membangun sistem pengumpulan ampas kopi dari coffee shop/UMKM, meningkatkan kapasitas produksi, dan uji coba penggunaan Coffuel pada sektor industri sesuai target.
+                            </p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white border border-bio-200 text-xs">
+                            <span class="font-bold text-bio-800 block">Target Utama:</span>
+                            Mencapai <strong>produksi skala pilot</strong> dan membangun ekosistem pasokan bahan baku sirkular.
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-amber-50 border border-amber-200 flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block px-3 py-1 rounded-full bg-amber-800 text-white text-xs font-bold mb-3">3 • Jangka Panjang (3–5+ Tahun)</span>
+                            <h4 class="font-display font-extrabold text-lg text-amber-950 mb-2">Komersialisasi & Ekspansi</h4>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                                Standardisasi produk, pengurusan sertifikasi/perizinan mutu biofuel nasional, pengembangan fasilitas produksi, serta ekspansi ke berbagai wilayah.
+                            </p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white border border-amber-200 text-xs">
+                            <span class="font-bold text-amber-900 block">Target Utama:</span>
+                            Menjadikan Coffuel sebagai <strong>biofuel alternatif komersial</strong> pendukung transisi energi berkelanjutan.
+                        </div>
+                    </div>
+                </div>
+            `,
+            swot: `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-5 rounded-2xl bg-bio-50/70 border border-bio-200">
+                        <h4 class="font-display font-extrabold text-bio-900 text-base mb-3 flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-bio-600 text-white flex items-center justify-center text-xs">S</span>
+                            STRENGTHS (Kekuatan)
+                        </h4>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+                            <li>Memanfaatkan limbah ampas kopi menjadi sumber energi bernilai tambah tinggi.</li>
+                            <li>Mendukung ekonomi sirkular dan pengurangan timbulan limbah organik.</li>
+                            <li>Berpotensi mengurangi ketergantungan terhadap BBM fosil tanpa konflik pangan.</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-amber-50/70 border border-amber-200">
+                        <h4 class="font-display font-extrabold text-amber-900 text-base mb-3 flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-amber-600 text-white flex items-center justify-center text-xs">W</span>
+                            WEAKNESSES (Kelemahan)
+                        </h4>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+                            <li>Kadar air ampas kopi segar tinggi sehingga membutuhkan proses pengeringan awal.</li>
+                            <li>Karakteristik dan kualitas bahan baku bervariasi antar jenis kopi dan metode seduh.</li>
+                            <li>Membutuhkan optimasi teknologi dan efisiensi biaya produksi agar kompetitif.</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-sky-50/70 border border-sky-200">
+                        <h4 class="font-display font-extrabold text-sky-900 text-base mb-3 flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-sky-600 text-white flex items-center justify-center text-xs">O</span>
+                            OPPORTUNITIES (Peluang)
+                        </h4>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+                            <li>Pertumbuhan pesat industri kedai kopi (>461 ribu unit) menjamin pasokan bahan baku.</li>
+                            <li>Meningkatnya kebutuhan energi alternatif rendah karbon dan mandatori E10 tahun 2028.</li>
+                            <li>Peluang kolaborasi luas dengan pemerintah, industri kimia, coffee shop, dan UMKM.</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-rose-50/70 border border-rose-200">
+                        <h4 class="font-display font-extrabold text-rose-900 text-base mb-3 flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-rose-600 text-white flex items-center justify-center text-xs">T</span>
+                            THREATS (Ancaman)
+                        </h4>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+                            <li>Persaingan dengan bahan baku biomassa lain sebagai sumber biofuel.</li>
+                            <li>Fluktuasi harga BBM bersubsidi dapat memengaruhi daya saing harga Coffuel.</li>
+                            <li>Regulasi ketat dan standar mutu sertifikasi biofuel skala industri menjadi tantangan implementasi.</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
+            pestle: `
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-extrabold text-bio-700 uppercase">P • Political</span>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Kebijakan transisi energi (RUEN & E10), program pengurangan energi fosil, serta dukungan pemerintah terhadap pengelolaan sampah sirkular memperkuat posisi Coffuel.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-extrabold text-amber-700 uppercase">E • Economic</span>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Fluktuasi harga BBM meningkatkan daya tarik alternatif; limbah ampas kopi menekan biaya bahan baku dan menciptakan nilai ekonomi baru bagi UMKM kopi.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-extrabold text-sky-700 uppercase">S • Social</span>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Kesadaran lingkungan meningkat dan budaya ngopi harian (58% populasi) menjamin pasokan; edukasi berkelanjutan mempercepat adopsi masyarakat.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-extrabold text-purple-700 uppercase">T • Technological</span>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Teknologi pengeringan, pretreatment biomassa, serta optimasi hidrolisis-fermentasi meningkatkan nilai kalor dan skalabilitas dari komunitas ke industri.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-extrabold text-rose-700 uppercase">L • Legal</span>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Kepatuhan terhadap standar spesifikasi mutu bahan bakar nabati, regulasi pemanfaatan limbah organik, serta standar keselamatan industri & distribusi.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-extrabold text-emerald-700 uppercase">E • Environmental</span>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed">Mengurangi pencemaran limbah ampas kopi, menerapkan prinsip <em>waste-to-energy</em>, dan mendukung dekarbonisasi sektor energi nasional.</p>
+                    </div>
+                </div>
+            `,
+            smart: `
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-display font-bold text-base text-slate-900 mb-3">Kerangka Tujuan SMART (Lampiran 3)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-5 gap-3">
+                            <div class="p-3.5 rounded-xl bg-bio-50 border border-bio-200">
+                                <span class="font-extrabold text-bio-800 text-xs">S • SPECIFIC</span>
+                                <p class="text-xs text-slate-600 mt-1">Mengolah ampas kopi menjadi bioetanol Coffuel pengganti BBM fosil.</p>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-bio-50 border border-bio-200">
+                                <span class="font-extrabold text-bio-800 text-xs">M • MEASURABLE</span>
+                                <p class="text-xs text-slate-600 mt-1">Terukur dari nilai kalor, kadar air, kadar abu, dan efisiensi pembakaran.</p>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-bio-50 border border-bio-200">
+                                <span class="font-extrabold text-bio-800 text-xs">A • ACHIEVABLE</span>
+                                <p class="text-xs text-slate-600 mt-1">Pasokan dari kedai kopi & rumah tangga dengan teknologi konversi bertahap.</p>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-bio-50 border border-bio-200">
+                                <span class="font-extrabold text-bio-800 text-xs">R • RELEVANT</span>
+                                <p class="text-xs text-slate-600 mt-1">Selaras transisi energi, ekonomi sirkular, dan diversifikasi energi RI.</p>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-bio-50 border border-bio-200">
+                                <span class="font-extrabold text-bio-800 text-xs">T • TIME-BOUND</span>
+                                <p class="text-xs text-slate-600 mt-1">Pengembangan bertahap dalam 1 tahun hingga tercapai prototype teruji.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-display font-bold text-base text-slate-900 mb-3">Peta Pihak yang Terlibat (Lampiran 5)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <p class="font-bold text-coffee-800">1. Coffee Shop & Industri Kopi</p>
+                                <p class="text-slate-600 mt-1">Pemasok utama ampas kopi dan pemilahan bahan baku awal.</p>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <p class="font-bold text-bio-800">2. Produsen Coffuel</p>
+                                <p class="text-slate-600 mt-1">Pengeringan, pretreatment, biokonversi, dan produksi bioetanol.</p>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <p class="font-bold text-indigo-800">3. Perguruan Tinggi & Riset</p>
+                                <p class="text-slate-600 mt-1">Riset optimasi teknologi, karakterisasi, dan uji kualitas mutu.</p>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <p class="font-bold text-amber-800">4. Pemerintah, Industri & Investor</p>
+                                <p class="text-slate-600 mt-1">Regulasi/insentif, pengguna B2B, edukasi masyarakat, dan pendanaan ekspansi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        };
+
+        function switchTab(tabKey) {
+            document.querySelectorAll('.strat-tab').forEach(btn => {
+                btn.classList.remove('bg-slate-900', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            });
+            const activeBtn = document.getElementById(`tab-${tabKey}`);
+            activeBtn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            activeBtn.classList.add('bg-slate-900', 'text-white', 'shadow-sm');
+
+            document.getElementById('tabContent').innerHTML = tabContents[tabKey];
+        }
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handlePartnerSubmit(e) {
+            e.preventDefault();
+            document.getElementById('mitraForm').classList.add('hidden');
+            document.getElementById('mitraSuccess').classList.remove('hidden');
+            setTimeout(() => {
+                closeModal('mitraModal');
+                document.getElementById('mitraForm').reset();
+                document.getElementById('mitraForm').classList.remove('hidden');
+                document.getElementById('mitraSuccess').classList.add('hidden');
+            }, 3500);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderSteps();
+            updateCalculator();
+            switchTab('roadmap');
+            switchAppTab('isi');
+        });
+
+        let userPoints = 2500;
+        let userWasteKg = 25.0;
+        let selectedLiters = 10;
+        let usePointsDiscount = true;
+
+        function updateAppWalletUI() {
+            const ptsEl = document.getElementById('appPointsDisplay');
+            const wasteEl = document.getElementById('appWasteDisplay');
+            if (ptsEl) ptsEl.innerHTML = `${userPoints.toLocaleString('id-ID')} <span class="text-xs font-normal text-bio-300">Pts</span>`;
+            if (wasteEl) wasteEl.textContent = `${userWasteKg.toLocaleString('id-ID', {minimumFractionDigits: 1})} kg SCG`;
+        }
+
+        function setorAmpasDemo() {
+            userWasteKg += 5.0;
+            userPoints += 500;
+            updateAppWalletUI();
+            const activeTab = document.querySelector('.app-nav-btn.bg-bio-600');
+            if (activeTab && activeTab.id === 'appBtn-isi') {
+                switchAppTab('isi');
+            }
+        }
+
+        function updateFuelOrder(liters, toggleDiscount) {
+            if (liters !== null) selectedLiters = liters;
+            if (toggleDiscount !== null) usePointsDiscount = toggleDiscount;
+            switchAppTab('isi');
+        }
+
+        function confirmRefuelDemo(totalPay, ptsUsed) {
+            if (ptsUsed > 0 && userPoints >= ptsUsed) {
+                userPoints -= ptsUsed;
+                updateAppWalletUI();
+            }
+            const body = document.getElementById('appScreenBody');
+            body.innerHTML = `
+                <div class="text-center py-4 space-y-2">
+                    <div class="w-12 h-12 rounded-full bg-bio-100 text-bio-700 flex items-center justify-center mx-auto">
+                        <i data-lucide="check-circle-2" class="w-7 h-7"></i>
+                    </div>
+                    <p class="font-display font-extrabold text-sm text-slate-900">Voucher QR Pengisian Aktif!</p>
+                    <p class="text-[11px] text-slate-600">Tunjukkan ke operator SPBU/Dispenser Mitra Coffuel:</p>
+                    <div class="p-2.5 rounded-xl bg-slate-100 font-mono text-xs font-bold text-slate-800">
+                        CF-${Math.floor(100000 + Math.random() * 900000)} • ${selectedLiters}L E10
+                    </div>
+                    <p class="text-xs font-bold text-bio-700">Total Bayar: Rp ${totalPay.toLocaleString('id-ID')}</p>
+                    <button onclick="switchAppTab('isi')" class="mt-2 px-4 py-1.5 rounded-lg bg-slate-900 text-white text-[11px] font-bold">Selesai</button>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        function switchAppTab(tab) {
+            document.querySelectorAll('.app-nav-btn').forEach(btn => {
+                btn.classList.remove('bg-bio-600', 'text-white', 'shadow-xs');
+                btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            });
+            const active = document.getElementById(`appBtn-${tab}`);
+            if (active) {
+                active.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+                active.classList.add('bg-bio-600', 'text-white', 'shadow-xs');
+            }
+
+            const body = document.getElementById('appScreenBody');
+            if (!body) return;
+
+            if (tab === 'isi') {
+                const basePrice = 8000;
+                const maxPtsNeeded = selectedLiters * 150;
+                const canDiscount = usePointsDiscount && userPoints >= maxPtsNeeded;
+                const discountAmount = canDiscount ? selectedLiters * 1500 : 0;
+                const finalPrice = (selectedLiters * basePrice) - discountAmount;
+
+                body.innerHTML = `
+                    <div class="space-y-2.5">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">Beli Bioetanol E10 Murah</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-800">Rp 8.000/L</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-1.5">
+                            ${[5, 10, 20].map(l => `
+                                <button onclick="updateFuelOrder(${l}, null)" class="py-1.5 rounded-lg text-xs font-bold border ${selectedLiters === l ? 'bg-coffee-800 text-white border-coffee-800' : 'bg-slate-50 text-slate-700 border-slate-200'}">
+                                    ${l} Liter
+                                </button>
+                            `).join('')}
+                        </div>
+                        <label class="flex items-center justify-between p-2 rounded-xl bg-bio-50 border border-bio-200 cursor-pointer">
+                            <div class="text-[11px]">
+                                <span class="font-bold text-bio-900 block">Tukar ${maxPtsNeeded.toLocaleString('id-ID')} Pts</span>
+                                <span class="text-bio-700">Diskon Rp1.500/L (Jadi Rp6.500/L)</span>
+                            </div>
+                            <input type="checkbox" ${canDiscount ? 'checked' : ''} onchange="updateFuelOrder(null, this.checked)" class="w-4 h-4 accent-bio-600">
+                        </label>
+                        <div class="flex items-center justify-between pt-1 border-t border-slate-100">
+                            <div>
+                                <span class="text-[10px] text-slate-400 block">Total Pembayaran</span>
+                                <span class="font-display font-extrabold text-base text-slate-900">Rp ${finalPrice.toLocaleString('id-ID')}</span>
+                            </div>
+                            <button onclick="confirmRefuelDemo(${finalPrice}, ${canDiscount ? maxPtsNeeded : 0})" class="px-3.5 py-2 rounded-xl bg-bio-600 hover:bg-bio-700 text-white text-xs font-bold shadow-sm">
+                                Buat QR Bayar
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'qr') {
+                body.innerHTML = `
+                    <div class="text-center space-y-2 py-1">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-bio-700">QR Code Subsidi Biofuel Tepat</span>
+                        <div class="w-28 h-28 mx-auto bg-slate-900 rounded-2xl p-2.5 flex items-center justify-center text-white shadow-inner">
+                            <i data-lucide="qr-code" class="w-20 h-20 text-bio-300"></i>
+                        </div>
+                        <p class="font-mono text-xs font-bold text-slate-800">ID: ARUNA-UNTIRTA-2026</p>
+                        <p class="text-[10px] text-slate-500">Scan di Kedai Mitra saat setor ampas atau di Dispenser Coffuel untuk harga khusus Rp8.000/L.</p>
+                    </div>
+                `;
+            } else if (tab === 'harga') {
+                body.innerHTML = `
+                    <div class="space-y-2">
+                        <p class="text-xs font-extrabold text-slate-900">Daftar Harga Bahan Bakar</p>
+                        <div class="p-2.5 rounded-xl bg-bio-50 border border-bio-200 flex justify-between items-center">
+                            <div>
+                                <p class="text-xs font-bold text-bio-900">Coffuel E10 (Member Poin)</p>
+                                <p class="text-[10px] text-bio-700">Bioetanol Ampas Kopi + Diskon</p>
+                            </div>
+                            <span class="font-display font-extrabold text-sm text-bio-700">Rp 6.500/L</span>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-coffee-50 border border-coffee-200 flex justify-between items-center">
+                            <div>
+                                <p class="text-xs font-bold text-coffee-900">Coffuel E10 Reguler / B2B</p>
+                                <p class="text-[10px] text-coffee-700">Sesuai Tabel 1 Analisis Ekonomi</p>
+                            </div>
+                            <span class="font-display font-extrabold text-sm text-coffee-900">Rp 8.000/L</span>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-100 flex justify-between items-center opacity-75">
+                            <div>
+                                <p class="text-xs font-bold text-slate-700">BBM Fosil Nonsubsidi</p>
+                                <p class="text-[10px] text-slate-500">Rata-rata pasar umum</p>
+                            </div>
+                            <span class="font-display font-bold text-xs text-slate-600 line-through">Rp 13.500/L</span>
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'stasiun') {
+                body.innerHTML = `
+                    <div class="space-y-2">
+                        <p class="text-xs font-extrabold text-slate-900">Titik Drop Ampas & Pengisian</p>
+                        <div class="p-2 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-coffee-900">1. LAFEBCO Untirta (Serang)</span>
+                                <span class="text-[10px] font-bold text-bio-600">0,8 km</span>
+                            </div>
+                            <p class="text-[10px] text-slate-500">Drop-box SCG (3–5 kg/hari) & Pilot Dispenser</p>
+                        </div>
+                        <div class="p-2 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-coffee-900">2. Hub Industri Cilegon–Banten</span>
+                                <span class="text-[10px] font-bold text-bio-600">14 km</span>
+                            </div>
+                            <p class="text-[10px] text-slate-500">Tangki Distribusi B2B & Armada UMKM</p>
+                        </div>
+                        <div class="p-2 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-coffee-900">3. Mitra Kimia Jabodetabek</span>
+                                <span class="text-[10px] font-bold text-bio-600">SAM Area</span>
+                            </div>
+                            <p class="text-[10px] text-slate-500">PT Chemifin Jaya Utama & PT Indochemical</p>
+                        </div>
+                    </div>
+                `;
+            }
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
+
